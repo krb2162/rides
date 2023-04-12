@@ -13,9 +13,11 @@ class RidesController < ApplicationController
     Driver.find(params[:driver_id])
   end
 #TODO: look into memoization
-  def fetch_ride
-    @ride = Ride.find(params[:id])
-  end
+  # def fetch_ride
+  #   @ride = Ride.find(params[:id])
+  # end
+
+  
 
   def commute_time
     GetDirectionsService.run!(start_loc: driver.home_address, end_loc: @ride.pick_up_at)

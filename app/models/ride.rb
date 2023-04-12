@@ -6,11 +6,11 @@ class Ride < ApplicationRecord
     scope :available, -> { where(driver_id: nil) }
     # scope :by_score, -> { order(score: :desc) }
 
-    # def score
-    #     self.route.earnings / (commute_time + self.route.time_minutes)
-    # end
+    def score(driver_id)
+        self.route.earnings / (commute_time(driver_id) + self.route.time_minutes)
+    end
 
-    # def commute_time #FIXME 
-    #     GetDirectionsService.run!(start_loc: self.driver.home_address, end_loc: self.driver.pick_up_at)
-    # end
+    def commute_time(driver_id) #FIXME 
+        GetDirectionsService.run!(start_address: Driver.find(driver_id).home_address, end_address: self.route.pick_up_address)
+    end
 end

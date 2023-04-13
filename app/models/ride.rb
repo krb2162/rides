@@ -14,6 +14,6 @@ class Ride < ApplicationRecord
 
     def commute_time(driver_id:)
         GetRouteService.run!(start_address: Driver.find(driver_id).home_address,
-            end_address: self.route.pick_up_address).time_minutes
+            end_address: self.route.start_address).time_minutes
     end
 end

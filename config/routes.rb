@@ -4,6 +4,4 @@ Rails.application.routes.draw do
   #TODO: come up with a good name for a custom endpt
   #nested?
   get "/rides/:driver_id", to: "rides#index"
-
-  
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_12_031635) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_13_185712) do
   create_table "drivers", force: :cascade do |t|
     t.string "home_address"
     t.datetime "created_at", null: false
@@ -26,8 +26,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_12_031635) do
   end
 
   create_table "routes", force: :cascade do |t|
-    t.string "pick_up_address"
-    t.string "destination_address"
+    t.string "start_address"
+    t.string "end_address"
     t.integer "time_minutes"
     t.integer "distance_miles"
     t.datetime "created_at", null: false

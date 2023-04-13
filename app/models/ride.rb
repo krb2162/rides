@@ -1,4 +1,6 @@
 class Ride < ApplicationRecord
+    paginates_per 10
+
     belongs_to :driver, optional: true
     belongs_to :route
 

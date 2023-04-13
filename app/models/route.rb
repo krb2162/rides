@@ -9,7 +9,6 @@ class Route < ApplicationRecord
     end
 
     def extra_miles
-        #what to do here if the value isn't made yet? say API went down?
         distance_miles > MILES_THRESHOLD ? distance_miles - MILES_THRESHOLD : 0
     end
 

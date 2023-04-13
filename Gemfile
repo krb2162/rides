@@ -9,11 +9,14 @@ gem "rails", "~> 7.0.0"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
-#google maps
+#google maps [https://github.com/zilverline/google-maps]
 gem "google-maps"
 
-#blueprinter
+#blueprinter [https://github.com/procore/blueprinter]
 gem "blueprinter"
+
+#pagination [https://github.com/kaminari/kaminari]
+gem 'kaminari'
 
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"

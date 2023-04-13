@@ -1,7 +1,6 @@
-class GetDirectionsService
+class GetRouteService
     class << self
         def run!(start_address:, end_address:)
-            #if this is in route then return stored data
             route = Route.find_by(pick_up_address: start_address, destination_address: end_address)
 
             if route.nil?
@@ -13,9 +12,10 @@ class GetDirectionsService
                     time_minutes: response.duration.value / 60.0,
                     distance_miles: response.distance.text.split(" ").first)
             end
-            # ? want to have elsif for if time minutes or distance is nil and do update after call?
+            # Error Handling for if the api call fails
+            # maybe don't allow null fields on Route? 
 
-            route.id #TODO: or route object if it works?
+            route
         end
     end
 end

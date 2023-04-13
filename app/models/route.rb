@@ -1,6 +1,8 @@
 class Route < ApplicationRecord
     has_many :rides
 
+    validates_presence_of :pick_up_address, :destination_address, :time_minutes, :distance_miles
+
     MILES_THRESHOLD = 5
     MINUTES_THRESHOLD = 15
 

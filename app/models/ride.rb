@@ -1,8 +1,8 @@
 class Ride < ApplicationRecord
-    paginates_per 10
-
     belongs_to :driver, optional: true
     belongs_to :route
+
+    paginates_per 10
 
     scope :in_future, -> { where(pick_up_at: Time.zone.now...) }
     scope :available, -> { where(driver_id: nil) }

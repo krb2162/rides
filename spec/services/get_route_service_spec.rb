@@ -4,7 +4,6 @@ RSpec.describe GetRouteService do
     let(:start_location) { "20 W 34th St., New York, NY 10001" }
     let(:end_location) { "253 W 125th St, New York, NY 10027" }
     let(:route) { create(:route, start_address: start_location, end_address: end_location) }
-    # let(:response) { Google::Maps.route(start_location, end_location) }
 
     describe '#run!' do
         let(:number_of_routes) { Route.count }

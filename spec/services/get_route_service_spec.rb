@@ -23,23 +23,20 @@ RSpec.describe GetRouteService do
         end
 
         context 'given a start location and end location pair not matching an existing route' do
-            it 'should create a new route' do
+            it 'should create and return a new route with formatted fields' do
+                start_route_count = Route.count
+
                 VCR.use_cassette('google_maps_route/sucess') do
-                    expect { described_class.run!(start_address: start_location, end_address: end_location) }
-                        .to change { Route.count }.by(1)
+                    response = described_class.run!(start_address: start_location, end_address: end_location) 
+                    expect(response).to eq(Route.last)
+
+                    expect(Route.count).to eq(start_route_count + 1)
+
+                    expect(response.time_minutes.class).to eq(Integer)
+                    expect(response.distance_miles.class).to eq(Integer)
+                    expect(response.start_address).to eq(start_location)
+                    expect(response.end_address).to eq(end_location)
                 end
-
-
-                # returned_route = described_class.run!(start_address: start_location, end_address: end_location) 
-
-                # expect(returned_route).to eq(route)
-                # pp number_of_routes
-            end
-
-            it 'should get the time and distance from google maps' do
-            end
-
-            it 'should accurately populate the route fields' do
             end
         end
     end

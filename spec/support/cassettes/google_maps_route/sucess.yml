@@ -1,0 +1,254 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/directions/json?destination=253%20W%20125th%20St,%20New%20York,%20NY%2010027&key=AIzaSyAYzElSMSzq5hq1Qr9WzcS9Uf3BnDed62w&language=en&origin=20%20W%2034th%20St.,%20New%20York,%20NY%2010001
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 3.0.0 (2020-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Fri, 14 Apr 2023 05:48:55 GMT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Fri, 14 Apr 2023 05:48:55 GMT
+      Pragma:
+      - no-cache
+      Expires:
+      - Fri, 01 Jan 1990 00:00:00 GMT
+      Cache-Control:
+      - no-cache, must-revalidate
+      X-Goog-Maps-Metro-Area:
+      - New York, NY
+      Server:
+      - mafe
+      Content-Length:
+      - '9767'
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      Server-Timing:
+      - gfet4t7; dur=102
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+    body:
+      encoding: UTF-8
+      string: |
+        {
+           "geocoded_waypoints" : [
+              {
+                 "geocoder_status" : "OK",
+                 "place_id" : "ChIJr92XCKlZwokRIy2j_7Rb2V8",
+                 "types" : [ "street_address" ]
+              },
+              {
+                 "geocoder_status" : "OK",
+                 "place_id" : "ChIJ3W90MG32wokRmKw-g1FC58E",
+                 "types" : [ "street_address" ]
+              }
+           ],
+           "routes" : [
+              {
+                 "bounds" : {
+                    "northeast" : {
+                       "lat" : 40.8176611,
+                       "lng" : -73.9502291
+                    },
+                    "southwest" : {
+                       "lat" : 40.74906259999999,
+                       "lng" : -74.00480039999999
+                    }
+                 },
+                 "copyrights" : "Map data ©2023 Google",
+                 "legs" : [
+                    {
+                       "distance" : {
+                          "text" : "6.7 mi",
+                          "value" : 10862
+                       },
+                       "duration" : {
+                          "text" : "25 mins",
+                          "value" : 1488
+                       },
+                       "end_address" : "253 W 125th St, New York, NY 10027, USA",
+                       "end_location" : {
+                          "lat" : 40.8097814,
+                          "lng" : -73.9502291
+                       },
+                       "start_address" : "20 W 34th St., New York, NY 10118, USA",
+                       "start_location" : {
+                          "lat" : 40.74906259999999,
+                          "lng" : -73.98601680000002
+                       },
+                       "steps" : [
+                          {
+                             "distance" : {
+                                "text" : "1.1 mi",
+                                "value" : 1810
+                             },
+                             "duration" : {
+                                "text" : "9 mins",
+                                "value" : 534
+                             },
+                             "end_location" : {
+                                "lat" : 40.75697359999999,
+                                "lng" : -74.00480039999999
+                             },
+                             "html_instructions" : "Head \u003cb\u003enorthwest\u003c/b\u003e on \u003cb\u003eW 34th St.\u003c/b\u003e toward \u003cb\u003e6th Ave\u003c/b\u003e/\u003cwbr/\u003e\u003cb\u003eAve of the Americas\u003c/b\u003e",
+                             "polyline" : {
+                                "points" : "sxuwFrkqbMOb@M^GRc@pACDK\\ABe@vASl@IVGROd@Up@e@xAa@rAM^Sl@oA`EK\\CHa@pAEPc@rAQh@ENM^Qf@a@nAe@|AOb@wApEGREL[hAITQf@M\\O`@ENa@lAM`@Of@]jAQf@g@|AENc@nAOf@?@Qh@]fACJSn@g@|A[dAM^Wv@K^EJ_@hAGRQh@m@jBM^K^CFY|@EHIXWx@GLCJEN_@lAYx@Ut@M\\Mb@GTSn@"
+                             },
+                             "start_location" : {
+                                "lat" : 40.74906259999999,
+                                "lng" : -73.98601680000002
+                             },
+                             "travel_mode" : "DRIVING"
+                          },
+                          {
+                             "distance" : {
+                                "text" : "1.2 mi",
+                                "value" : 1870
+                             },
+                             "duration" : {
+                                "text" : "5 mins",
+                                "value" : 318
+                             },
+                             "end_location" : {
+                                "lat" : 40.7715305,
+                                "lng" : -73.99420529999999
+                             },
+                             "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eNY-9A N\u003c/b\u003e/\u003cwbr/\u003e\u003cb\u003e12th Ave\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eContinue to follow NY-9A N\u003c/div\u003e",
+                             "maneuver" : "turn-right",
+                             "polyline" : {
+                                "points" : "ajwwF~`ubMg@YgFiD[S]S_C}A{@k@wA}@UOOK_@W]Wc@YKIw@i@]Ua@Wa@Y_@Ww@u@MOY_@c@u@i@{@SWmAiBKM[c@IKOQSSa@_@MMEEIEMKMICCAAg@]QKmBoAMIq@a@o@a@KIQK}B{A{B{AECaBiASMWQkAu@YQa@W{DiCKGEEIE[OQKSGSIOEA?KCSGSEEAKCe@COAA?m@EOAq@EQCMCQCA?OEOCOEME"
+                             },
+                             "start_location" : {
+                                "lat" : 40.75697359999999,
+                                "lng" : -74.00480039999999
+                             },
+                             "travel_mode" : "DRIVING"
+                          },
+                          {
+                             "distance" : {
+                                "text" : "3.1 mi",
+                                "value" : 5022
+                             },
+                             "duration" : {
+                                "text" : "4 mins",
+                                "value" : 240
+                             },
+                             "end_location" : {
+                                "lat" : 40.8113144,
+                                "lng" : -73.9667103
+                             },
+                             "html_instructions" : "Keep \u003cb\u003eleft\u003c/b\u003e to continue on \u003cb\u003eNY-9A N\u003c/b\u003e/\u003cwbr/\u003e\u003cb\u003eHenry Hudson Pkwy\u003c/b\u003e, follow signs for \u003cb\u003eH Hudson Pkwy\u003c/b\u003e/\u003cwbr/\u003e\u003cb\u003eBronx\u003c/b\u003e",
+                             "maneuver" : "keep-left",
+                             "polyline" : {
+                                "points" : "aezwFx~rbMQESKSIAAGEKISMYQQMeAq@EC_@WCAMICCWOUOSOe@[c@WCAu@c@ECeAk@ECUOc@UGCa@UGEIGCAECSOECSMc@Ye@[e@[i@]i@_@c@WAAwCmBEE[Se@[wDcCWSWQMG_BgA_@UIEa@Wc@W}@o@iAy@kAgAGEUUEGi@g@{@{@ACCAOMMMoCiBEC{AaAg@]_@Wu@e@w@g@eAq@c@Yw@g@{@g@i@]MIo@_@cAo@a@Ue@UGCOGQIYKKGWKWGc@Oe@O[IMCWGm@SgAYCAkA]KEKCSGcA_@y@Yk@UICKGSIi@Wu@]OGSK[QICMIi@YMGc@W[SSM_@U_@U_@UYQc@[MIIGg@_@]WYS{@s@ECq@m@MKQOe@e@UUMM]_@i@m@]c@_@c@a@i@QUw@eAk@w@UYQU_@g@o@q@AC[[a@_@IGWSYQOKMGKE[MQIKC_@Mk@QoA[MEKAaEeAe@Mc@Kk@O{@WA?o@W]MQIGC]OCAQKi@Wa@SAA]QUMIEAAc@WMGiAq@s@c@o@a@m@]kAw@_Am@y@k@oAw@a@Ym@a@m@c@yAeAq@e@WSe@[g@_@o@e@cAs@g@_@_@YYSc@[gAs@s@g@e@[{A_Ay@e@_@UcB_A{Ay@UK]Sq@_@a@UOIUMYQ]USK]U[S"
+                             },
+                             "start_location" : {
+                                "lat" : 40.7715305,
+                                "lng" : -73.99420529999999
+                             },
+                             "travel_mode" : "DRIVING"
+                          },
+                          {
+                             "distance" : {
+                                "text" : "0.5 mi",
+                                "value" : 859
+                             },
+                             "duration" : {
+                                "text" : "1 min",
+                                "value" : 75
+                             },
+                             "end_location" : {
+                                "lat" : 40.8176611,
+                                "lng" : -73.9610515
+                             },
+                             "html_instructions" : "Take the exit toward \u003cb\u003e125 St\u003c/b\u003e",
+                             "maneuver" : "ramp-right",
+                             "polyline" : {
+                                "points" : "u}axF|rmbMG[?ASOy@o@CC]YOKSQGEEECASQECu@m@AA{@s@m@g@GG]YCCQOa@[}@q@{@k@iAu@qA{@WQMGKEYO]S_@U_@We@[_@Yc@_@EEEGCASQEEs@q@QSIKCAWYACMOIIOQGKEIGMCEEKIO?ACEIUACII"
+                             },
+                             "start_location" : {
+                                "lat" : 40.8113144,
+                                "lng" : -73.9667103
+                             },
+                             "travel_mode" : "DRIVING"
+                          },
+                          {
+                             "distance" : {
+                                "text" : "489 ft",
+                                "value" : 149
+                             },
+                             "duration" : {
+                                "text" : "1 min",
+                                "value" : 38
+                             },
+                             "end_location" : {
+                                "lat" : 40.8170179,
+                                "lng" : -73.95949779999999
+                             },
+                             "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eSt Clair Pl\u003c/b\u003e",
+                             "maneuver" : "turn-right",
+                             "polyline" : {
+                                "points" : "kecxFpolbM@ALk@BI@EBGPm@Pk@^mA`@gA"
+                             },
+                             "start_location" : {
+                                "lat" : 40.8176611,
+                                "lng" : -73.9610515
+                             },
+                             "travel_mode" : "DRIVING"
+                          },
+                          {
+                             "distance" : {
+                                "text" : "0.7 mi",
+                                "value" : 1152
+                             },
+                             "duration" : {
+                                "text" : "5 mins",
+                                "value" : 283
+                             },
+                             "end_location" : {
+                                "lat" : 40.8097814,
+                                "lng" : -73.9502291
+                             },
+                             "html_instructions" : "Slight \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eW 125th St\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the left\u003c/div\u003e",
+                             "maneuver" : "turn-slight-right",
+                             "polyline" : {
+                                "points" : "kacxFzelbMl@i@LK~@}@t@o@XW`@_@NMFEFELKr@m@b@_@lB_BlB_Bl@g@xAmATQvBeBDEZWr@k@JAZWXUBCHQLQTe@L]BIFQPi@FQDKBMd@wAb@sAf@_BvB_HnA{D"
+                             },
+                             "start_location" : {
+                                "lat" : 40.8170179,
+                                "lng" : -73.95949779999999
+                             },
+                             "travel_mode" : "DRIVING"
+                          }
+                       ],
+                       "traffic_speed_entry" : [],
+                       "via_waypoint" : []
+                    }
+                 ],
+                 "overview_polyline" : {
+                    "points" : "sxuwFrkqbMaChHaD~JoLh_@}@tCeA|CoDbLyHjV}A|EmCtIsRcMuFwDaAq@eAeA{BiD_CgDsAsAkBqA}E}CwGmEsCmBcIiFw@c@iAc@u@QgAKqBMs@K}@Ue@QUKaAo@}B{AaDsBmEcCkBkAaKwG}KoHoBkAgCiBsAmAaCaCc@a@mNeJeJwFoAk@uAg@aGcBgBi@}DwAiEqBcE_C}ByA}AiAmCyB{AwAsB_CkCiDsAgBmByBk@g@q@e@eAg@iBm@kHiBqDaAaBo@gDaBaGmDsFoDmEwCmKuHeD}BoFiDwJoFaBaAy@i@G]qAcAiA}@eEiD{@u@_BmAeCaBiBmAYMwBqAeAu@i@e@c@a@sAsAq@w@W]MWSc@M[KMRw@V{@p@yB`@gAl@i@lAiAnAgA`Ay@~MaLlEoDJAZW\\YVc@b@cAd@wAbIaW"
+                 },
+                 "summary" : "NY-9A N",
+                 "warnings" : [],
+                 "waypoint_order" : []
+              }
+           ],
+           "status" : "OK"
+        }
+  recorded_at: Fri, 14 Apr 2023 05:48:55 GMT
+recorded_with: VCR 6.1.0

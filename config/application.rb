@@ -11,6 +11,10 @@ module Rides
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+    Google::Maps.configure do |config|
+      config.authentication_mode = Google::Maps::Configuration::API_KEY
+      config.api_key = Rails.application.credentials.google[:maps]
+    end
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

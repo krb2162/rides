@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  # resources :drivers, only: [:index]
-  get "/drivers", to: "drivers#index"
-  resources :rides
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  #TODO: come up with a good name for a custom endpt
+  #nested?
+  get "/rides/:driver_id", to: "rides#index"
 end

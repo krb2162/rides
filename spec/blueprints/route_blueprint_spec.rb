@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'spec_helper'
 
 RSpec.describe RouteBlueprint do
     let(:route) { create(:route) }

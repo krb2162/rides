@@ -9,7 +9,7 @@ class Ride < ApplicationRecord
     #TODO? want to add custom scope for sorting by score? 
 
     def score(driver_id:)
-        self.route.earnings / (commute_time(driver_id: driver_id) + self.route.time_minutes)
+        self.route.earnings / (commute_time(driver_id: driver_id)/60.0 + self.route.time_minutes/60.0)
     end
 
     def commute_time(driver_id:)

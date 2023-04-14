@@ -1,6 +1,5 @@
 class RidesController < ApplicationController
-  #FIXME: update when make final route
-  def index
+  def index #FIXME: choose a good custom route name and update
     @rides = Ride.available.in_future.sort { |a,b| b.score(driver_id: driver_id) <=> a.score(driver_id: driver_id) }
 
     render json: RideBlueprint.render(paginated_rides, view: :extended)
@@ -16,7 +15,7 @@ class RidesController < ApplicationController
     return @rides if params[:page].nil? && params[:page_limit].nil?
 
     page = params[:page].nil? ? 1 : params[:page]
-    #if receiving page_limit param without page param is unexpected,
+    #TODO: if receiving page_limit param without page param is unexpected,
       #then log to Sentry or other error log
 
     if params[:page_limit]

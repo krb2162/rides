@@ -2,6 +2,7 @@ class Route < ApplicationRecord
     has_many :rides
 
     validates_presence_of :start_address, :end_address, :time_minutes, :distance_miles
+    #TODO: add validations for addresses
 
     MILES_THRESHOLD = 5
     MINUTES_THRESHOLD = 15

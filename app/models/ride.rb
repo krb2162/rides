@@ -2,6 +2,8 @@ class Ride < ApplicationRecord
     belongs_to :driver, optional: true
     belongs_to :route
 
+    validates_presence_of :pick_up_at
+
     paginates_per 10
 
     scope :in_future, -> { where(pick_up_at: Time.zone.now...) }

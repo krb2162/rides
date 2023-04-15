@@ -14,6 +14,10 @@ RSpec.describe Route, type: :model do
     #     it { should belong_to(:ride) }
 	# end
 	describe "constants" do
+		it "should have the correct base pay value" do
+			expect(Route::BASE_PAY).to eq(12)
+		end
+
 		it "should have the correct miles threshold value" do
 			expect(Route::MILES_THRESHOLD).to eq(5)
 		end

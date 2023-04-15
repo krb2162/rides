@@ -7,7 +7,7 @@ RSpec.describe Ride, type: :model do
     let(:ride_2) { create(:ride, pick_up_at: Time.zone.tomorrow) }
     let(:ride_3) { create(:ride, pick_up_at: Time.zone.yesterday) }
 
-    let(:route) { create(:route) }
+    let(:route) { create(:route, time_minutes: 10, distance_miles: 8) }
 
 	# describe "relationships" do
     #     it { should belong_to(:driver).optional }
@@ -66,11 +66,17 @@ RSpec.describe Ride, type: :model do
                 ride.update!(driver_id: nil)
                 expect(ride.score).to eq(nil)
             end
-            # it "" do
-            #     pp ride.score
-            #     pp ride_2.score
-            #     pp ride_3.score
-            # end
+            
+            it "gets the correct score for a ride" do
+                expect(GetRouteService).to receive(:run!).and_return(route)
+                ride.update!(route_id: route.id)
+
+                # route is 10 minutes, 8 miles; commute is 10 minutes
+                # earnings = 12 + (3 * 1.5) + (0 * 0.7) == 16.5
+                # 16.5 / (10/60.0 + 10/60.0) == 49.5
+                
+                expect(ride.score).to eq(49.5)
+            end
         end
 
         context "#commute_time" do

@@ -7,7 +7,7 @@ RSpec.describe Route, type: :model do
     # let(:ride_2) { create(:ride, pick_up_at: Time.zone.tomorrow) }
     # let(:ride_3) { create(:ride, pick_up_at: Time.zone.yesterday) }
 
-    # let(:route) { create(:route, time_minutes: 10, distance_miles: 8) }
+    let(:route) { create(:route) }
 
 	# describe "relationships" do
     #     it { should belong_to(:driver).optional }
@@ -64,19 +64,31 @@ RSpec.describe Route, type: :model do
         end
 
         context "#extra_time" do
+			it "correctly calculates for a duration less than the threshold" do
+				route.update!(time_minutes: Route::MINUTES_THRESHOLD - 1) # assume threshold > 0
+
+				expect(route.extra_time).to eq(0)
+			end
+
+			it "correctly calculates for a duration greater than the threshold" do
+				route.update(time_minutes: Route::MINUTES_THRESHOLD + 3)
+
+				expect(route.extra_time).to eq(3)
+			end
         end
 
         context "#extra_miles" do
-            # it "handles nil driver" do
-            #     ride.update!(driver_id: nil)
-            #     expect(ride.commute_time).to eq(nil)
-            # end
+			it "correctly calculates for a distance less than the threshold" do
+				route.update!(distance_miles: Route::MILES_THRESHOLD - 1) # assume threshold > 0
 
-            # it "gets the commute time in minutes for a driver" do
-            #     expect(GetRouteService).to receive(:run!).and_return(route)
+				expect(route.extra_miles).to eq(0)
+			end
 
-            #     expect(ride.commute_time).to eq(route.time_minutes)
-            # end
+			it "correctly calculates for a distance greater than the threshold" do
+				route.update(distance_miles: Route::MILES_THRESHOLD + 3)
+
+				expect(route.extra_miles).to eq(3)
+			end
         end
     end
 end

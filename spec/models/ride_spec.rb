@@ -9,27 +9,17 @@ RSpec.describe Ride, type: :model do
 
     let(:route) { create(:route, time_minutes: 10, distance_miles: 8) }
 
-	# describe "relationships" do
-    #     it { should belong_to(:driver).optional }
-    #     it { should belong_to(:ride) }
-	# end
+	describe "relationships" do
+        it { should belong_to(:driver).optional }
+        it { should belong_to(:route) }
+	end
 
     describe "validations" do
-        context "pick up at" do
-            it "is not valid without the presence of pick up at" do
-                ride.pick_up_at = nil
-                expect(ride).to_not be_valid
-            end
-            
-            it "is valid with presence of pick up at" do
-                expect(ride).to be_valid
-            end
-        end
+		it { should validate_presence_of(:pick_up_at) }
     end
 
     describe "scopes" do
         context ".in_future" do
-
             it "only includes rides that have future pick up times" do
                 expect(Ride.in_future).to include(ride)
                 expect(Ride.in_future).to include(ride_2)

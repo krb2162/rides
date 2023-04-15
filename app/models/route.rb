@@ -2,6 +2,8 @@ class Route < ApplicationRecord
     has_many :rides
 
     validates_presence_of :start_address, :end_address, :time_minutes, :distance_miles
+    validates :time_minutes, numericality: { greater_than_or_equal_to: 0 }
+    validates :distance_miles, numericality: { greater_than_or_equal_to: 0 }
     #TODO: select and implement an address validation with an address gem
 
     # coupled with business logic, so extrapolated to constants for ease of adjustment

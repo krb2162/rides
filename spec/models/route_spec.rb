@@ -1,12 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Route, type: :model do
-    # let(:driver) { create(:driver) }
-    
-    # let(:ride) { create(:ride, pick_up_at: Time.zone.tomorrow ) }
-    # let(:ride_2) { create(:ride, pick_up_at: Time.zone.tomorrow) }
-    # let(:ride_3) { create(:ride, pick_up_at: Time.zone.yesterday) }
-
     let(:route) { create(:route) }
 
 	# describe "relationships" do
@@ -50,21 +44,12 @@ RSpec.describe Route, type: :model do
 
     describe "methods" do
         context "#earnings" do
-            # it "handles nil driver" do
-            #     ride.update!(driver_id: nil)
-            #     expect(ride.score).to eq(nil)
-            # end
-            
-            # it "gets the correct score for a ride" do
-            #     expect(GetRouteService).to receive(:run!).and_return(route)
-            #     ride.update!(route_id: route.id)
+            it "returns the correct earnings for a route" do
+				route.update!(distance_miles: 100, time_minutes: 75)
+				# 12 + (1.5 * 95) + (0.7 * 60) == 196.5
 
-            #     # route is 10 minutes, 8 miles; commute is 10 minutes
-            #         # earnings = 12 + (3 * 1.5) + (0 * 0.7) == 16.5
-            #         # 16.5 / (10/60.0 + 10/60.0) == 49.5
-                
-            #     expect(ride.score).to eq(49.5)
-            # end
+                expect(route.earnings).to eq(196.5)
+            end
         end
 
         context "#extra_time" do

@@ -72,8 +72,8 @@ RSpec.describe Ride, type: :model do
                 ride.update!(route_id: route.id)
 
                 # route is 10 minutes, 8 miles; commute is 10 minutes
-                # earnings = 12 + (3 * 1.5) + (0 * 0.7) == 16.5
-                # 16.5 / (10/60.0 + 10/60.0) == 49.5
+                    # earnings = 12 + (3 * 1.5) + (0 * 0.7) == 16.5
+                    # 16.5 / (10/60.0 + 10/60.0) == 49.5
                 
                 expect(ride.score).to eq(49.5)
             end

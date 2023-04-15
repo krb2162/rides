@@ -1,12 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Ride, type: :model do
-    let(:address) { "50123 Blueberry Lane, Santa Cruz, CA" }
-    let(:driver) { create(:driver, home_address: address) }
+    let(:driver) { create(:driver) }
     
     let(:ride) { create(:ride, pick_up_at: Time.zone.tomorrow ) }
     let(:ride_2) { create(:ride, pick_up_at: Time.zone.tomorrow) }
     let(:ride_3) { create(:ride, pick_up_at: Time.zone.yesterday) }
+
+    let(:route) { create(:route) }
 
 	# describe "relationships" do
     #     it { should belong_to(:driver).optional }
@@ -60,5 +61,29 @@ RSpec.describe Ride, type: :model do
     end
 
     describe "methods" do
+        context "#score" do
+            it "handles nil driver" do
+                ride.update!(driver_id: nil)
+                expect(ride.score).to eq(nil)
+            end
+            # it "" do
+            #     pp ride.score
+            #     pp ride_2.score
+            #     pp ride_3.score
+            # end
+        end
+
+        context "#commute_time" do
+            it "handles nil driver" do
+                ride.update!(driver_id: nil)
+                expect(ride.commute_time).to eq(nil)
+            end
+
+            it "gets the commute time in minutes for a driver" do
+                expect(GetRouteService).to receive(:run!).and_return(route)
+
+                expect(ride.commute_time).to eq(route.time_minutes)
+            end
+        end
     end
 end

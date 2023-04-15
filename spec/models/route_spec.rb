@@ -3,10 +3,10 @@ require 'rails_helper'
 RSpec.describe Route, type: :model do
     let(:route) { create(:route) }
 
-	# describe "relationships" do
-    #     it { should belong_to(:driver).optional }
-    #     it { should belong_to(:ride) }
-	# end
+	describe "relationships" do
+        it { should have_many(:rides) }
+	end
+
 	describe "constants" do
 		it "should have the correct base pay value" do
 			expect(Route::BASE_PAY).to eq(12)
@@ -30,16 +30,13 @@ RSpec.describe Route, type: :model do
 	end
 
     describe "validations" do
-        # context "pick up at" do
-        #     it "is not valid without the presence of pick up at" do
-        #         ride.pick_up_at = nil
-        #         expect(ride).to_not be_valid
-        #     end
-            
-        #     it "is valid with presence of pick up at" do
-        #         expect(ride).to be_valid
-        #     end
-        # end
+		it { should validate_presence_of(:distance_miles) }
+		it { should validate_presence_of(:time_minutes) }
+		it { should validate_presence_of(:start_address) }
+		it { should validate_presence_of(:end_address) }
+
+		it { should validate_numericality_of(:distance_miles).is_greater_than_or_equal_to(0) }
+		it { should validate_numericality_of(:time_minutes).is_greater_than_or_equal_to(0) }
     end
 
     describe "methods" do

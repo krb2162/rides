@@ -10,8 +10,8 @@ class RidesController < ApplicationController
   end
 
   def rides # extendable for other type params -> 'past', 'future', 'next', etc...
-    if params[:filter] == 'best'
-      Ride.available.in_future.sort { |a,b| b.score(driver_id: driver_id) <=> a.score(driver_id: driver_id) }
+    if params[:filter] == 'score'
+      Ride.available.in_future.sort { |a,b| b.score <=> a.score }
     else
       Ride.all
     end

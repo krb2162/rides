@@ -1,5 +1,5 @@
 class RidesController < ApplicationController
-  def index # use params for index filtering, no filter param defaults to all rides
+  def index # uses params for filtering
     render json: RideBlueprint.render(paginated_rides(rides), view: :extended)
   end
 

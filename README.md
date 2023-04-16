@@ -1,4 +1,7 @@
 # Rides
+Note to reviewer: 
+I rarely leave comments in Ruby code, using them sparingly to highlight code designed around particular business logic, or that need an explained engineering decision. However, since this is a project for an interview process, I used a heavy amount of comments to communicate some of my decisions while completing the project.   
+
 Table of contents
 =================
 

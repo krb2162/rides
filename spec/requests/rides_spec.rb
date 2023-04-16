@@ -8,34 +8,35 @@ RSpec.describe "Rides", type: :request do
         let(:route2) { create(:route, time_minutes: 2, distance_miles: 2) }
 
         let!(:taken_ride) { create(:ride, pick_up_at: Time.zone.tomorrow, driver_id: driver.id) }
+        let!(:taken_ride_2) { create(:ride, pick_up_at: Time.zone.tomorrow, driver_id: driver.id) }
         let!(:past_ride) { create(:ride, pick_up_at: Time.zone.yesterday, driver_id: nil) }
         let!(:future_available_ride) { create(:ride, pick_up_at: Time.zone.tomorrow, driver_id: nil, route_id: route.id) }
         let!(:future_available_ride_2) { create(:ride, pick_up_at: Time.zone.tomorrow, driver_id: nil, route_id: route2.id) }
 
         it 'makes a successful request' do
-            get "/rides/:#{driver.id}"
+            get "/rides/#{driver.id}"
             expect(response).to be_successful
         end
 
         context 'no filter param' do
-            it 'returns all rides' do
-                get "/rides/:#{driver.id}"
+            it "returns all of a driver's rides" do
+                get "/rides/#{driver.id}"
                 res = JSON.parse(response.body)
 
-                expect(res.length).to eq(4)
+                expect(res.length).to eq(2)
             end
         end
 
         context 'filter param is score' do
             it 'returns future, available rides' do 
-                get "/rides/:#{driver.id}", :params => {:filter => 'score'}
+                get "/rides/#{driver.id}", :params => {:filter => 'score'}
 
                 res = JSON.parse(response.body)
                 expect(res.first["id"]).to eq(future_available_ride.id)
             end
 
             it 'returns in score descending' do 
-                get "/rides/:#{driver.id}", :params => {:filter => 'score'}
+                get "/rides/#{driver.id}", :params => {:filter => 'score'}
                 res = JSON.parse(response.body)
                 
                 expect(res.length).to eq(2)

@@ -1,6 +1,9 @@
 # Rides
 Note to reviewer: 
-I rarely leave comments in Ruby code, using them sparingly to highlight code designed around particular business logic, or that need an explained engineering decision. However, since this is a project for an interview process, I included comments to communicate some of my decisions/thoughts while completing the project.
+1. I rarely leave comments in Ruby code, using them sparingly to highlight code designed around particular business logic, or that need an explained engineering decision. However, since this is a project for an interview process, I included comments to communicate some of my decisions/thoughts while completing the project.
+2. Since the directions mentioned reducing duplicate API calls, I took that also to mean that the time the call was made and getting current traffic conditions was out of scope for this project. If that is not the case or was to change, you could manage freshness of the data with re-processing by last process time, or a webhook to get notified of big traffic events in an area and reprocessing around the affected routes (perhaps just when called on), or a myriad other ways relating to the various business needs and contraints ($, speed, maintainability).
+3. I left comments for other things to add such as error logging to Sentry & address validations that I felt were out of scope.  If they are not, and you would like me to set that up/add them, please let me know.
+
 
 Table of contents
 =================

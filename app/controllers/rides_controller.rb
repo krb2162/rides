@@ -1,19 +1,24 @@
 class RidesController < ApplicationController
-  def index # use param for index filtering, no filter param defaults to all rides
+  def index # use params for index filtering, no filter param defaults to all rides
     render json: RideBlueprint.render(paginated_rides(rides), view: :extended)
   end
 
   private
- 
-  def driver_id
-    params[:driver_id]
+
+  # don't need any safety checking on params
+    # ex. no create/updates, ...
+
+  def driver
+    Driver.find(params[:driver_id]) #could memoize if we want
   end
 
-  def rides # extendable for other type params -> 'past', 'future', 'next', etc...
+  # extendable for classic GET rides (add route pointing to this controller method & handle logic in index) and other type params -> 'past', 'future', 'next', etc...
+  def rides
+   # ex. return Ride.all if params[:driver_id].nil? # would handle classic GET
     if params[:filter] == 'score'
       Ride.available.in_future.sort { |a,b| b.score <=> a.score }
     else
-      Ride.all
+      driver.rides
     end
   end
 

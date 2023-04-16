@@ -20,7 +20,7 @@ Table of contents
 
 Include the following entities: </br>
 
-Build a RESTful API endpoint that returns a paginated JSON list of rides in descending score order for a given driver
+Build a RESTful API endpoint that returns a paginated JSON list of rides in descending score order for a given driver.
 Calculate the score of a ride in $ per hour as: (ride earnings) / (commute duration + ride duration). Higher is better
 Google Maps is expensive. Consider how you can reduce duplicate API calls. </br>
 
